@@ -33,6 +33,9 @@ jobs:
           echo "Skipping dvc pull in GitHub Actions due to Google Drive interactive authentication."
           echo "DVC workflow was validated locally."
 
+      - name: Recreate dataset locally for CI
+        run: python create_data.py
+
       - name: Train model and log to MLflow
         run: python train.py
 
